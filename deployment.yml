@@ -3,8 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: myapp
- labels:
-  app: myapp
 spec:
  replicas: 2
  selector:
@@ -25,7 +23,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp
+  name: myapp-svc
+  labels:
+    apps:myapp
 spec:
   type: LoadBalancer
   selector:
